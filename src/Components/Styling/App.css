@@ -1,0 +1,52 @@
+/*Colors
+
+very blue: #175676
+blue: #4BA3C3
+light blue: #CCE6F4
+red: #D62839
+
+*/
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.background{
+  height: 800px;
+  width:100%;
+  background-color: #4BA3C3;
+}
+.wrapper {
+  text-align: center;
+  padding-top:30px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.jumbotron{
+  background-color: #4BA3C3;
+  color: #CCE6F4;
+  margin-bottom: 50px;
+}
+
+.tableItem {
+  font-size: 2.5rem;
+}
+
+.highlight {
+  color:#D62839;
+}
+
+.dark-blue {
+  color: #175676;
+}
+
+.fine-blue-bg {
+  background-color: #CCE6F4;
+  border-radius: 5px;
+}
+
+.update {
+  margin-top:50px;
+}
