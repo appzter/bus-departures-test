@@ -17,7 +17,6 @@ body{
 }
 .wrapper {
   text-align: center;
-  padding-top:30px;
 }
 
 .centered {
@@ -27,7 +26,6 @@ body{
 .jumbotron{
   background-color: #4BA3C3;
   color: #CCE6F4;
-  margin-bottom: 50px;
 }
 
 .tableItem {
