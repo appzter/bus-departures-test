@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import './Styling/App.css';
 import moment from 'moment'
 
+
+// LÖS PROBLEMET MED TIDEN : https://stackoverflow.com/questions/19088040/how-can-i-run-a-function-at-specific-time-date
+
 import BusList from './BusList';
 import NextBus from './NextBus';
 import LatestUpdate from './LatestUpdate';
@@ -100,7 +103,7 @@ class App extends Component {
         <div className="container-fluid wrapper">
           <NextBus nextBus={this.state.nextBus} />
           <BusList busData={this.state.busData} />
-          <LatestUpdate latestUpdate={this.state.latestUpdate} />
+          <LatestUpdate latestUpdate={this.state.latestUpdate} fetchBuses={this.fetchBuses} />
         </div>
       </div>
 
