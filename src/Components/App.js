@@ -3,17 +3,16 @@ import React, { Component } from 'react';
 import './Styling/App.css';
 import moment from 'moment'
 
-
-// LÖS PROBLEMET MED TIDEN : https://stackoverflow.com/questions/19088040/how-can-i-run-a-function-at-specific-time-date
-
 import BusList from './BusList';
 import NextBus from './NextBus';
 import LatestUpdate from './LatestUpdate';
 
+//import apiKey from other file in .gitignore
+import { apiKey } from '../secretKey';
 
+//Cors hack to be able to access the api from localhost
 const proxy = 'https://cors-anywhere.herokuapp.com/'
-// const placeAPI = 'http://api.sl.se/api2/typeahead.json?key=1745531b1dce48158887e77c46431119&searchstring=lummerg&stationsonly=true&maxresults=1'
-const departureAPI = 'http://api.sl.se/api2/realtimedeparturesV4.json?key=ed0b141c514e44b683959ffb6d79b0fd&siteid=8012&timewindow=60&Metro=false&Train=false&Tram=false&Ship=false'
+const departureAPI = `http://api.sl.se/api2/realtimedeparturesV4.json?key=${apiKey}&siteid=8012&timewindow=60&Metro=false&Train=false&Tram=false&Ship=false`
 
 
 class App extends Component {
@@ -27,10 +26,10 @@ class App extends Component {
         'stop': '',
         'time': 0,
       },
-      latestUpdate: ''
+      latestUpdate: '',
+      updater:null
     }
 
-    this.fetchBuses = this.fetchBuses.bind(this);
   }
 
  //When component loads
@@ -49,7 +48,8 @@ class App extends Component {
   }
 
   //fetches buses from TrafikLab API
-  fetchBuses() {
+  fetchBuses = () => {
+
     fetch(proxy + departureAPI)
     .then(blob => blob.json())
     .then(res => {
@@ -92,7 +92,7 @@ class App extends Component {
       } //End if
     })
     .catch(err => {
-
+      console.log(err)
     })
   }
 
